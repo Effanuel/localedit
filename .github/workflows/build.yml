@@ -41,7 +41,7 @@ jobs:
           echo "$HOME/.sonar/build-wrapper-linux-x86" >> $GITHUB_PATH
       - name: Cmake build
         run: |
-          cmake . -B build
+          cmake . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=On
       - name: Run build-wrapper
         run: |
           build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} cmake --build ./build
