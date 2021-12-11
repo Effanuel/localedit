@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 project(Localedit LANGUAGES CXX)
 
 # TODO: WinExtras is only required on Windows, remove for other platforms
-# find_package(Qt5 COMPONENTS Core Gui Widgets WinExtras REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 
