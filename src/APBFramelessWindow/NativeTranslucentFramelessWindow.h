@@ -1,14 +1,15 @@
 #pragma once
 
-#include <QtWidgets>
+#include "APBFramelessWindowTitleBar.h"
+#include "APBPushButton.h"
+#include <QtWinExtras/QtWin>
+#include <dwmapi.h>
+#include <windows.h>
+#include <windowsx.h>
 
 // Based on https://github.com/wangyangyangisme/Custom-Frameless-Blur-Behind-Windows-For-Qt
-
-// Create a frameless window with support for aero glass, aero snap, resizing etc.
-// using everyone's favourite Windows API.
-
-// This class is only to encapsulate all the Windows code to its own special place so I don't
-// have to see it outside of NativeTranslucentFramelessWindow.
+// On Windows platforms, allows the application to draw a stylized window, replacing the
+// titlebar and handling window management events itself.
 class NativeTranslucentFramelessWindow: public QWidget {
 	Q_OBJECT
 
@@ -16,6 +17,8 @@ class NativeTranslucentFramelessWindow: public QWidget {
 	explicit NativeTranslucentFramelessWindow(QWidget *parent = nullptr);
 
 	protected:
+	APBFramelessWindowTitleBar *titleBar;
+
 	bool nativeEvent(const QByteArray &eventType, void *message, long *result) override;
 
 	bool isLeftBorderHit(const QRect &iRect, long iBorderWidth, long iX, long iY);
@@ -30,7 +33,7 @@ class NativeTranslucentFramelessWindow: public QWidget {
 	bool isBottomRightCornerHit(const QRect &iRect, long iBorderWidth, long iX, long iY);
 	bool isBottomLeftCornerHit(const QRect &iRect, long iBorderWidth, long iX, long iY);
 
-	virtual bool isTitleBarHit(const QRect &iRect, long iBorderWidth, long iX, long iY);
+	bool isTitleBarHit(const QRect &iRect, long iBorderWidth, long iX, long iY);
 
 	private:
 	LONG borderWidth;
