@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QtWidgets>
-#include <QtWinExtras/QtWin>
 #include <windows.h>
 #include <windowsx.h>
 #include <dwmapi.h>
@@ -60,8 +59,8 @@ class NativeTranslucentFramelessWindow: public QWidget {
 	} WINCOMPATTR_DATA;
 
 	typedef struct tagWINCOMPATTR {
-		DWORD attribute; // the attribute to query
-		WINCOMPATTR_DATA *pData; // buffer to store the result
-		ULONG dataSize; // size of the pData buffer
+		DWORD attribute;			// the attribute to query
+		WINCOMPATTR_DATA *pData;	// buffer to store the result
+		ULONG dataSize;				// size of the pData buffer
 	} WINCOMPATTR;
 };
