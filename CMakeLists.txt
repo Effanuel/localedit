@@ -42,7 +42,7 @@ set(SOURCE_FILES
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Gui Qt5::Widgets Qt5::WinExtras Dwmapi)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Gui Qt5::Widgets Dwmapi)
 
 if(WIN32)
 	# Retrieve the absolute path to qmake and then use that path to find
