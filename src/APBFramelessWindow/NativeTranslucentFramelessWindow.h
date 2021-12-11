@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QtWidgets>
-#include <dwmapi.h>
 
 // Based on https://github.com/wangyangyangisme/Custom-Frameless-Blur-Behind-Windows-For-Qt
 
